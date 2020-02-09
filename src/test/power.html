@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Insert title here</title>
+<h1> CALCULATOR </h1>
+</head>
+<body>
+ <form>
+   First Number:<br>
+  <input type="text"  id="baseId" name="number"><br>
+   Second Number:<br>
+  <input type="text" id="exponentId"  name="power"><br>
+  <input type="button" value="Submit">
+  <br>
+  <input type="text" name="result">
+  
+  <script>
+$(document).ready(function(){
+  $("#submit").click(function(){
+
+
+var result=document.getElementById("result").value
+console.log(result)
+ var baseid=document.getElementById("baseId").value
+ var exponentid=document.getElementById("exponentId").value
+
+   
+url="http:localhost:8080/powercalculator/compute"
+data=JSON.stringify({
+"baseValue":baseid,
+"exponentValue":exponentid})
+
+
+$.ajax({
+  url:url,
+  type:"POST",
+  data:data,
+  contentType:"application/json; charset=utf-8",
+  dataType:"json",
+  success: function(data){
+   
+
+document.getElementById("result").value=data;
+  }
+})
+
+  });
+});
+
+</script>
+
+
+
+
+
+</body>
+</html>
+
+  
+</form> 
+</body>
+</html>
