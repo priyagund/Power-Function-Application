@@ -1,1 +1,1 @@
-#ASSIGNMENT 4: Application for Power function calculator
+#ASSIGNMEN 4: Application for Power calculator.
